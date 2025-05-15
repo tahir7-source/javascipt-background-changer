@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project 4 - Color Buttons</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+      transition: background-color 0.3s ease;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    button:hover {
+      opacity: 0.85;
+      transform: scale(1.05);
+    }
+
+    .blue { background-color: blue; }
+    .violet { background-color: violet; color: black; }
+    .yellow { background-color: gold; color: black; }
+    .orange { background-color: orange; }
+    .random { background-color: black; color: white; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Click a button to change background color</h2>
+    <div class="buttons">
+      <button class="blue">Blue</button>
+      <button class="violet">Violet</button>
+      <button class="yellow">Yellow</button>
+      <button class="orange">Orange</button>
+      <button class="random" id="randomBtn">Random</button>
+    </div>
+  </div>
+
+  <script>
+    const colors = ["blue", "violet", "gold", "orange"];
+    const body = document.body;
+
+    document.querySelector('.blue').addEventListener('click', () => body.style.backgroundColor = "blue");
+    document.querySelector('.violet').addEventListener('click', () => body.style.backgroundColor = "violet");
+    document.querySelector('.yellow').addEventListener('click', () => body.style.backgroundColor = "gold");
+    document.querySelector('.orange').addEventListener('click', () => body.style.backgroundColor = "orange");
+
+    document.getElementById('randomBtn').addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * colors.length);
+      body.style.backgroundColor = colors[randomIndex];
+    });
+  </script>
+</body>
+</html>
